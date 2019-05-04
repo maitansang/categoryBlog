@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit author</title>
+</head>
+<body>
+<h1>Edit author</h1>
+<p>
+    <a href="/categories">category list</a>
+</p>
+<!--/*@thymesVar id="message" type="jdk"*/-->
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-category}" th:object="${category}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td> type:</td>
+            <td><input type="text" th:field="*{type}"/></td>
+        </tr>
+
+        <tr>
+            <td> author:</td>
+            <td><input type="text" th:field="*{author}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update category"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
